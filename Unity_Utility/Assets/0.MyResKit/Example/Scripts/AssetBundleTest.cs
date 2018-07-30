@@ -8,10 +8,10 @@ public class AssetBundleTest : MonoBehaviour {
 	IEnumerator Start () {
         string path = Application.streamingAssetsPath + "/AssetBundles/images";
 
-        AssetBundle assetBundle = AssetBundle.LoadFromFile(path);
+        ResLoader resLoader = new ResLoader();
 
         SpriteRenderer redRenderer = GameObject.Find("Red").GetComponent<SpriteRenderer>();
-        Texture2D redTexture = assetBundle.LoadAsset<Texture2D>("Red");
+        Texture2D redTexture = resLoader.LoadAsset<Texture2D>("Red", path);
         Sprite redSprite = Sprite.Create(redTexture, new Rect(0, 0, redTexture.width, redTexture.height),Vector2.one*0.5f);
         redRenderer.sprite = redSprite;
 
@@ -19,7 +19,7 @@ public class AssetBundleTest : MonoBehaviour {
         Resources.UnloadAsset(redTexture);
 
         SpriteRenderer blueRenderer = GameObject.Find("Blue").GetComponent<SpriteRenderer>();
-        Texture2D blueTexture = assetBundle.LoadAsset<Texture2D>("Blue");
+        Texture2D blueTexture = resLoader.LoadAsset<Texture2D>("Blue", path);
         Sprite blueSprite = Sprite.Create(blueTexture, new Rect(0, 0, blueTexture.width, blueTexture.height), Vector2.one * 0.5f);
         blueRenderer.sprite = blueSprite;
 
@@ -27,7 +27,7 @@ public class AssetBundleTest : MonoBehaviour {
         Resources.UnloadAsset(blueTexture);
 
         SpriteRenderer greenRenderer = GameObject.Find("Green").GetComponent<SpriteRenderer>();
-        Texture2D greenTexture = assetBundle.LoadAsset<Texture2D>("Green");
+        Texture2D greenTexture = resLoader.LoadAsset<Texture2D>("Green", path);
         Sprite greenSprite = Sprite.Create(greenTexture, new Rect(0, 0, greenTexture.width, greenTexture.height), Vector2.one * 0.5f);
         greenRenderer.sprite = greenSprite;
 
