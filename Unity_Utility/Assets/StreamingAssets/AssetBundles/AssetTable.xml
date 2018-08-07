@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="gb2312"?>
+<AssetTable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AssetBundleInfos>
+    <AssetBundleInfo>
+      <AssetInfos>
+        <AssetInfo>
+          <AssetName>Blue</AssetName>
+          <OwnerAssetBundleName>images</OwnerAssetBundleName>
+        </AssetInfo>
+        <AssetInfo>
+          <AssetName>Green</AssetName>
+          <OwnerAssetBundleName>images</OwnerAssetBundleName>
+        </AssetInfo>
+        <AssetInfo>
+          <AssetName>Red</AssetName>
+          <OwnerAssetBundleName>images</OwnerAssetBundleName>
+        </AssetInfo>
+      </AssetInfos>
+      <AssetBundleName>images</AssetBundleName>
+    </AssetBundleInfo>
+  </AssetBundleInfos>
+</AssetTable>

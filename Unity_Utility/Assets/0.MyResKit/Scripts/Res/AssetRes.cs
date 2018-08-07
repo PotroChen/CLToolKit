@@ -7,15 +7,18 @@ public class AssetRes : Res {
 
     public AssetRes(string assetName,string assetBundleName) : base(assetName)
     {
-        this.assetBundleName = assetBundleName;
+        this.assetBundleName = assetBundleName ?? AssetTable.Instance.GetAssetBundleName(assetName);
     }
 
 
     public override void Load()
     {
         base.Load();
-        assetBundleRes = ResMgr.GetAssetBundleRes(assetBundleName);
+        if(assetBundleRes == null)
+            assetBundleRes = ResMgr.GetAssetBundleRes(Application.streamingAssetsPath + "/AssetBundles/"+assetBundleName);
         asset = (assetBundleRes.Asset as AssetBundle).LoadAsset(Name);
+        if (asset == null)
+            Debug.LogErrorFormat("AssetBundle{0} do not contain asset{1}", assetBundleRes, asset);
     }
 
     protected override void UnLoad()
@@ -23,6 +26,7 @@ public class AssetRes : Res {
         base.UnLoad();
         if (asset is GameObject)
         {
+            
         }
         else
         {

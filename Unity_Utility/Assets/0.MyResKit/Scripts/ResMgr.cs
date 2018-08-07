@@ -8,9 +8,14 @@ public class ResMgr {
     /// </summary>
     public static List<Res> SharedLoadedReses = new List<Res>();//Resource里的资源和AssetBundle的资源重名的话，还没有做区分
 
-    public static Res GetRes(string assetName,string assetBundleName = null)
+    public static void Init()
     {
-        Res res = SharedLoadedReses.Find(loadedAsset => loadedAsset.Name == assetName);
+        AssetTable.Load();
+    }
+
+    public static Res GetRes(string resName,string assetBundleName = null)
+    {
+        Res res = SharedLoadedReses.Find(loadedAsset => loadedAsset.Name == resName);
 
         if (res != null)
         {
@@ -18,10 +23,14 @@ public class ResMgr {
             return res;
         }
 
-        if (string.IsNullOrEmpty(assetBundleName))
-            res = new ResourceRes(assetName);
+        if (resName.StartsWith("resources://"))
+        {
+            res = new ResourceRes(resName);
+        }
         else
-            res = new AssetRes(assetName, assetBundleName);
+        {
+            res = new AssetRes(resName, assetBundleName);
+        }
 
         res.Load();
         SharedLoadedReses.Add(res);

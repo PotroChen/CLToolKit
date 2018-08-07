@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d8dd2317e6879374488c9ac7980c3057
+guid: 44d0c552080e7a44ca6479a7d210fdef
 timeCreated: 1532683339
 licenseType: Free
 TextureImporter:
@@ -93,5 +93,5 @@ TextureImporter:
     physicsShape: []
   spritePackingTag: 
   userData: 
-  assetBundleName: images
+  assetBundleName: 
   assetBundleVariant: 

@@ -12,6 +12,8 @@ public class AssetBundleRes : Res
     {
         base.Load();
         asset = AssetBundle.LoadFromFile(Name);
+        if (asset == null)
+            Debug.LogErrorFormat("AssetBundle:{0} do not exists");
     }
 
     protected override void UnLoad()

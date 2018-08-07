@@ -12,7 +12,7 @@ public class ResourceRes : Res
     public override void Load()
     {
         base.Load();
-        asset = Resources.Load(Name);
+        asset = Resources.Load(Name.Substring("resources://".Length));
     }
 
     protected override void UnLoad()
