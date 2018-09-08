@@ -1,4 +1,5 @@
-﻿using UnityEngine.UI;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class UIMainPanel : UIPanel
 {
@@ -6,7 +7,8 @@ public class UIMainPanel : UIPanel
     {
         base.Init();
 
-        transform.Find("Button").GetComponent<Button>().onClick.AddListener(()=> { UIPanel.OpenPanel<UIGamePanel>(); ClosePanel(); });
+        Transform uiGamePanel = transform.Find("Button");
+        uiGamePanel.GetComponent<Button>().onClick.AddListener(() => { UIPanel.OpenPanel<UIGamePanel>(); ClosePanel(); });
     }
 
 }
