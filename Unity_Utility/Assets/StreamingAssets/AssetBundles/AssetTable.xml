@@ -18,5 +18,36 @@
       </AssetInfos>
       <AssetBundleName>images</AssetBundleName>
     </AssetBundleInfo>
+    <AssetBundleInfo>
+      <AssetInfos>
+        <AssetInfo>
+          <AssetName>Intro_Movie_01</AssetName>
+          <OwnerAssetBundleName>movies</OwnerAssetBundleName>
+        </AssetInfo>
+      </AssetInfos>
+      <AssetBundleName>movies</AssetBundleName>
+    </AssetBundleInfo>
+    <AssetBundleInfo>
+      <AssetInfos>
+        <AssetInfo>
+          <AssetName>1soundChouJiangZanShi</AssetName>
+          <OwnerAssetBundleName>sound</OwnerAssetBundleName>
+        </AssetInfo>
+      </AssetInfos>
+      <AssetBundleName>sound</AssetBundleName>
+    </AssetBundleInfo>
+    <AssetBundleInfo>
+      <AssetInfos>
+        <AssetInfo>
+          <AssetName>UIGamePanel</AssetName>
+          <OwnerAssetBundleName>ui</OwnerAssetBundleName>
+        </AssetInfo>
+        <AssetInfo>
+          <AssetName>UIMainPanel</AssetName>
+          <OwnerAssetBundleName>ui</OwnerAssetBundleName>
+        </AssetInfo>
+      </AssetInfos>
+      <AssetBundleName>ui</AssetBundleName>
+    </AssetBundleInfo>
   </AssetBundleInfos>
 </AssetTable>

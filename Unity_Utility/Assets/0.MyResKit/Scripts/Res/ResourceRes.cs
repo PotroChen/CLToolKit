@@ -18,11 +18,11 @@ public class ResourceRes : Res
     protected override void UnLoad()
     {
         base.UnLoad();
-        //if (asset is GameObject)//Resources不能UnLoad GameObject AssetBundle等类型（一般assetBundle一般也不会放在Resources里面）
-        //{
-        //}
-        //else
-        Resources.UnloadAsset(asset);
+        if (asset is GameObject)//Resources不能UnLoad GameObject AssetBundle等类型（一般assetBundle一般也不会放在Resources里面）
+        {
+        }
+        else
+            Resources.UnloadAsset(asset);
     }
 
 

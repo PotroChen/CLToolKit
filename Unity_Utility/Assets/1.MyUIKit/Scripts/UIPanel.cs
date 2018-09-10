@@ -5,17 +5,6 @@ public class UIPanel : MonoBehaviour {
 
     protected static Dictionary<string, UIPanel> panels = new Dictionary<string, UIPanel>();
 
-    private static Transform uiRootTrans;
-    protected static Transform UIRootTrans
-    {
-        get
-        {
-            if (!uiRootTrans)
-                uiRootTrans = GameObject.Find("Canvas").transform;
-            return uiRootTrans;
-        }
-    }
-
     private ResLoader resLoader;
 
     protected virtual void Init()
@@ -23,7 +12,7 @@ public class UIPanel : MonoBehaviour {
         panels.Add(this.name, this);
     }
 
-    public static void OpenPanel<TPanel>() where TPanel : UIPanel
+    public static void OpenPanel<TPanel>(UILayer uiLayer = UILayer.Common) where TPanel : UIPanel
     {
         string panelName = typeof(TPanel).ToString();
         string[] splitedName = panelName.Split('.');
@@ -37,10 +26,23 @@ public class UIPanel : MonoBehaviour {
         {
             ResLoader resLoader = new ResLoader();
 
-            GameObject prefab = resLoader.LoadAsset<GameObject>("resources://"+panelName);
-            GameObject instance = GameObject.Instantiate(prefab, UIPanel.UIRootTrans);
+            GameObject prefab = resLoader.LoadAsset<GameObject>(panelName);
+            GameObject instance = null;
+            switch (uiLayer)
+            {
+                case UILayer.Common:
+                    instance = GameObject.Instantiate(prefab, UIRoot.CommonLayer);
+                    break;
+                case UILayer.Bottom:
+                    instance = GameObject.Instantiate(prefab, UIRoot.BottomLayer);
+                    break;
+                case UILayer.Top:
+                    instance = GameObject.Instantiate(prefab, UIRoot.TopLayer);
+                    break;
+            }
+            instance.name = panelName;
+
             TPanel panel = instance.GetComponent<TPanel>();
-            panels.Add(panelName,panel);
             panel.resLoader = resLoader;
             panel.Init();
         }
@@ -48,9 +50,9 @@ public class UIPanel : MonoBehaviour {
 
     public void ClosePanel()
     {
-        resLoader.UnLoadAll();
         Destroy(this.gameObject);
         panels.Remove(this.name);
+        resLoader.UnLoadAll();
     }
 
 
