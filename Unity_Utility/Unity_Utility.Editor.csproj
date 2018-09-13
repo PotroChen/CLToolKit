@@ -338,6 +338,8 @@
     <Compile Include="Assets\BuildReport\Scripts\Editor\Window\Screen\BRT_OptionsScreen.cs" />
     <Compile Include="Assets\BuildReport\Scripts\Editor\Window\Screen\BRT_OverviewScreen.cs" />
     <Compile Include="Assets\BuildReport\Scripts\Editor\Window\Screen\BRT_SizeStatsScreen.cs" />
+    <Compile Include="Assets\Editor\EditorCoroutine\EditorCoroutine.cs" />
+    <Compile Include="Assets\Editor\EditorCoroutine\WaitForSecondsInEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\BuildReport\BuildReportToolOptions.xml" />
