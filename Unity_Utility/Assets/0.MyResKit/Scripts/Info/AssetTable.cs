@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +12,20 @@ public class AssetTable {
 
     public static void Load()
     {
-        Chenlin.SerializeUtil.XmlHelper.DeSerializeFromFile(out instance, Application.streamingAssetsPath + "/AssetBundles/AssetTable.xml");
+        foreach (var operation in Load(Application.streamingAssetsPath + "/AssetBundles/AssetTable.xml")) ;
+    }
+
+    public static IEnumerable Load(string path)
+    {
+        WWW www = new WWW(path);
+        yield return www;
+        if (www.error != null)
+            Debug.LogError(www.error);
+        else
+            instance = Chenlin.SerializeUtil.XmlHelper.Deserialize<AssetTable>(www.text);
+
+        www.Dispose();
+
         if (instance == null)
             Debug.LogError("AssetTable 读取失败");
     }
