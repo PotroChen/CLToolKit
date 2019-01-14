@@ -22,12 +22,6 @@ public class ConfirmWindow : EditorWindow
         window.Show();
     }
 
-    [MenuItem("Chen/Test")]
-    static void Test()
-    {
-        ConfirmWindow.Create("你确定要执行这个操作嘛？",()=> { Debug.Log("执行操作"); });
-    }
-
     void OnGUI()
     {
         EditorGUILayout.Space();
