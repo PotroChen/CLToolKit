@@ -5,3 +5,8 @@
 /Unity_Utility/Temp
 /Unity_Utility/Unity_Utility.csproj
 /Unity_Utility/Unity_Utility.sln
+*.csproj
+*.sln
+/CLToolKit/Library
+/CLToolKit/obj
+/CLToolKit/.vscode
